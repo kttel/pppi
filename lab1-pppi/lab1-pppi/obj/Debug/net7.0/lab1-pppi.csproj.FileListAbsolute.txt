@@ -1,0 +1,15 @@
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.csproj.AssemblyReference.cache
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.GeneratedMSBuildEditorConfig.editorconfig
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.AssemblyInfoInputs.cache
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.AssemblyInfo.cs
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.csproj.CoreCompileInputs.cache
+D:\PPPI\lab1-pppi\lab1-pppi\bin\Debug\net7.0\lab1-pppi.exe
+D:\PPPI\lab1-pppi\lab1-pppi\bin\Debug\net7.0\lab1-pppi.deps.json
+D:\PPPI\lab1-pppi\lab1-pppi\bin\Debug\net7.0\lab1-pppi.runtimeconfig.json
+D:\PPPI\lab1-pppi\lab1-pppi\bin\Debug\net7.0\lab1-pppi.dll
+D:\PPPI\lab1-pppi\lab1-pppi\bin\Debug\net7.0\lab1-pppi.pdb
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.dll
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\refint\lab1-pppi.dll
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.pdb
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\lab1-pppi.genruntimeconfig.cache
+D:\PPPI\lab1-pppi\lab1-pppi\obj\Debug\net7.0\ref\lab1-pppi.dll
