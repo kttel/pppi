@@ -1,0 +1,8 @@
+D:\PPPI\lab4-pppi\lab4-pppi\bin\Debug\lab4-pppi.exe.config
+D:\PPPI\lab4-pppi\lab4-pppi\bin\Debug\lab4-pppi.exe
+D:\PPPI\lab4-pppi\lab4-pppi\bin\Debug\lab4-pppi.pdb
+D:\PPPI\lab4-pppi\lab4-pppi\obj\Debug\lab4-pppi.csproj.AssemblyReference.cache
+D:\PPPI\lab4-pppi\lab4-pppi\obj\Debug\lab4-pppi.csproj.SuggestedBindingRedirects.cache
+D:\PPPI\lab4-pppi\lab4-pppi\obj\Debug\lab4-pppi.csproj.CoreCompileInputs.cache
+D:\PPPI\lab4-pppi\lab4-pppi\obj\Debug\lab4-pppi.exe
+D:\PPPI\lab4-pppi\lab4-pppi\obj\Debug\lab4-pppi.pdb
