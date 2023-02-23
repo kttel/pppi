@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab5-pppi", "lab5-pppi\lab5-pppi.csproj", "{B5393B65-2244-4312-AA56-DB77B1B2DC05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5393B65-2244-4312-AA56-DB77B1B2DC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5393B65-2244-4312-AA56-DB77B1B2DC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5393B65-2244-4312-AA56-DB77B1B2DC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5393B65-2244-4312-AA56-DB77B1B2DC05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2F0BEF7-0FC3-4287-AABC-AEC8C762B119}
+	EndGlobalSection
+EndGlobal
