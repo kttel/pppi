@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Xml;
+using LabProject;
 
-namespace LabProject.Intefraces
+namespace LabProject
 {
     public interface ITagService
     {

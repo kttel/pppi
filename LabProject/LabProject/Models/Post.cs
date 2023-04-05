@@ -7,15 +7,15 @@
         public string Body { get; set; }
         public IList<Tag> Tags { get; set; } = new List<Tag>();
         public DateTime dateofCreation { get; set; } = DateTime.Now;
-        public User User { get; set; }
-        public Post(int id, string title, string body, IList<Tag> tags, User user)
+        public Author Author { get; set; }
+        public int AuthorId { get; set; } = 0;
+        public Post(int id, string title, string body, int authorId = 0)
         {
             Id = id;
             Title = title;
             Body = body;
-            Tags = tags;
             dateofCreation = DateTime.Now;
-            User = user;
+            AuthorId = authorId;
         }
     }
 }

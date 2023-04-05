@@ -1,5 +1,5 @@
-﻿using LabProject.Intefraces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using LabProject;
 
 namespace LabProject
 {

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "324ZkUJckLdGjqo043Sf9MbJJ0T6oXGfcR2zKPjf2wb+XENL3ZFjV0W1LXlA0e5tiVZDkA5cN5ewiukpJrBNUA==",
+  "dgSpecHash": "VoXOMmwhOUaU6V3wo6j9CFvro2Y3y3KPDzKnlbOnttYti96t+x3aHfwRLApdOY7h7qi5K2p2kmTBcUPwjl8CfA==",
   "success": true,
   "projectFilePath": "D:\\PPPI\\LabProject\\LabProject\\LabProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Student\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Student\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.4\\microsoft.aspnetcore.authentication.jwtbearer.7.0.4.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.2\\microsoft.aspnetcore.openapi.7.0.2.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Student\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -1,47 +1,48 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace LabProject
+namespace LabProject.Controllers
 {
     [ApiController]
-    [Route("[controller]s")]
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public UserController(UserService userService)
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
-        [HttpGet(Name = "GetAllUsers")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> Register(UserRegisterRequest request)
         {
-            var users = await _userService.GetUsers();
-            return users;
-        }
-        [HttpGet("{id}", Name = "GetUser")]
-        public async Task<ActionResult<User>> GetUser(int id)
-        {
-            var user = await _userService.GetUser(id);
-            return user;
+            try
+            {
+                var user = await _userService.Register(request);
+                return Ok(user);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPost(Name = "CreateUser")]
-        public async Task<ActionResult<User>> CreateUser(User user)
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login(UserLoginRequest request)
         {
-            return await _userService.CreateUser(user);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<User>> PutUser(int id, User user)
-        {
-            await _userService.PutUser(id, user);
-            return await _userService.GetUser(id);
-        }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTag(int id)
-        {
-            await _userService.DeleteUser(id);
-            return NoContent();
+            try
+            {
+                var user = await _userService.Login(request);
+                return Ok(user);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return Unauthorized();
+            }
         }
     }
 }

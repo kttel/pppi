@@ -1,21 +1,39 @@
-﻿namespace LabProject
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace LabProject
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
-        public string Username { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string SecondName { get; set; }
+
+        [Required]
+        [EmailAddress]
         public string Email { get; set; }
-        public DateTime dateofRegister { get; set; } = DateTime.Now;
-        public Boolean IsActive { get; set; } = true;
-        public Boolean IsAdmin { get; set; } = false;
-        public User(int id, string username, string email)
-        {
-            Id = id;
-            Username = username;
-            Email = email;
-            dateofRegister = DateTime.Now;
-            IsAdmin = false;
-            IsActive = true;
-        }
+
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? LastAuthorizationDate { get; set; }
+
+        public int FailedAuthorizationAttempts { get; set; }
+
+        [NotMapped]
+        public string PlainTextPassword { get; set; }
     }
 }
