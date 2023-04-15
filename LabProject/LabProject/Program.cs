@@ -1,7 +1,5 @@
-using LabProject;
 using LabProject.Repositories.UserRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -25,6 +23,7 @@ namespace LabProject
             builder.Services.AddScoped<IPasswordEncryptionService, PasswordEncryptionService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IMyService, MyService>();
 
             builder.Services.AddScoped<TagService>();
             builder.Services.AddScoped<AuthorService>();
@@ -55,16 +54,21 @@ namespace LabProject
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(options =>
+
+            builder.Services.AddSwaggerGen(c =>
             {
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API v1.0", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "API v2.0", Version = "v2" });
+                c.SwaggerDoc("v3", new OpenApiInfo { Title = "API v3.0", Version = "v3" });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "JWT Authorization header using the Bearer scheme",
                     Type = SecuritySchemeType.Http,
                     Scheme = "bearer"
                 });
 
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
                         new OpenApiSecurityScheme
@@ -80,15 +84,15 @@ namespace LabProject
                 });
             });
 
-
             var app = builder.Build();
-
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1.0");
+                    options.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2.0");
+                    options.SwaggerEndpoint("/swagger/v3/swagger.json", "My API V3.0");
                     options.RoutePrefix = "swagger";
 
                     options.DocumentTitle = "My API - Swagger UI";
@@ -100,7 +104,6 @@ namespace LabProject
                     options.OAuthScopeSeparator(" ");
                     options.OAuthUsePkce();
                 });
-
             }
 
             app.UseHttpsRedirection();

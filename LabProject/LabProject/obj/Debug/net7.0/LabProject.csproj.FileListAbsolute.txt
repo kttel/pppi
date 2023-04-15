@@ -75,3 +75,11 @@ D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\S
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\ClosedXML.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\ExcelNumberFormat.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\Irony.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\SixLabors.Fonts.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\System.IO.Packaging.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\XLParser.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.dll
