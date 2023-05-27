@@ -5,6 +5,7 @@ using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 namespace LabProject
 {
@@ -14,12 +15,10 @@ namespace LabProject
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // DB just for future enhancements
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // I use AddScoped because it's effectively to maintain state within a request in such way.
-            // I need creating a new instance of a service once per request within the scope with my program.
+            builder.Services.AddTransient<IAuthorRepository, AuthorRepository>();
             builder.Services.AddScoped<IPasswordEncryptionService, PasswordEncryptionService>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();

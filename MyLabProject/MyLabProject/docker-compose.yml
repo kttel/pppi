@@ -1,0 +1,32 @@
+version: '3.9'
+
+networks:
+  webnet:
+    driver: bridge
+
+services:
+  mylabproject:
+    image: ${DOCKER_REGISTRY-}mylabproject
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mylabproject
+    restart: always
+    depends_on:
+      - sqldb
+    ports: 
+      - "8080:80"
+    networks:
+      - webnet
+
+  sqldb:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+      - "1433:1433"
+    container_name: sqldb
+    restart: always
+    environment:
+      SA_PASSWORD: "0kostyuk!yelyzaveta0"
+      ACCEPT_EULA: "Y"
+    networks:
+      - webnet

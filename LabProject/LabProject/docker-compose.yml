@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  labproject:
+    image: ${DOCKER_REGISTRY-}labproject
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: labproject
+    restart: always
+    depends_on:
+      - database
+    ports: 
+      - "8080:80"
+
+  database:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+        - "1433:1433"
+    container_name: database
+    restart: always
+    environment:
+        SA_PASSWORD: "0kostyuk!yelyzaveta0"
+        ACCEPT_EULA: "Y"

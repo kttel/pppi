@@ -9,78 +9,128 @@ namespace LabProject
     [Route("[controller]s")]
     public class AuthorController : ControllerBase
     {
-        private readonly AuthorService _authorService;
+        // private readonly AuthorService _authorService;
+        IAuthorRepository AuthorRepository;
 
-        public AuthorController(AuthorService authorService)
+        public AuthorController(IAuthorRepository authorRepository)//AuthorService authorService)
         {
-            _authorService = authorService;
+            //_authorService = authorService;
+            AuthorRepository = authorRepository;
         }
-        [HttpGet(Name = "GetAllUsers")]
-        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
+        [HttpGet(Name = "GetAllAuthors")]
+        public IEnumerable<Author> Get()//async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
         {
-            var resAuthors = await _authorService.GetAuthors();
-            var authors = resAuthors.Value.ToList();
-            var response = new BaseResponse<Author>()
-            {
-                Description = "Success",
-                StatusCode = 200,
-                Values = authors
-            };
-            return Ok(response);
+            return AuthorRepository.Get();
+            //var resAuthors = await _authorService.GetAuthors();
+            //var authors = resAuthors.Value.ToList();
+            //var response = new BaseResponse<Author>()
+            //{
+            //    Description = "Success",
+            //    StatusCode = 200,
+            //    Values = authors
+            //};
+            //return Ok(response);
         }
-        [HttpGet("{id}", Name = "GetUser")]
-        public async Task<ActionResult<Author>> GetAuthor(int id)
+        [HttpGet("{id}", Name = "GetAuthor")]
+        public IActionResult Get(int Id)//async Task<ActionResult<Author>> GetAuthor(int id)
         {
-            var resAuthor = await _authorService.GetAuthor(id);
-            var author = resAuthor.Value;
-            var response = new BaseResponse<Author>()
+            Author author = AuthorRepository.Get(Id);
+
+            if (author == null)
             {
-                Description = "Success",
-                StatusCode = 200,
-                Values = new List<Author> { author }
-            };
-            return Ok(response);
+                return NotFound();
+            }
+
+            return new ObjectResult(author);
+            //var resAuthor = await _authorService.GetAuthor(id);
+            //var author = resAuthor.Value;
+            //var response = new BaseResponse<Author>()
+            //{
+            //    Description = "Success",
+            //    StatusCode = 200,
+            //    Values = new List<Author> { author }
+            //};
+            //return Ok(response);
         }
 
         [Authorize]
-        [HttpPost(Name = "CreateUser")]
-        public async Task<ActionResult<Author>> CreateAuthor(Author author)
+        [HttpPost(Name = "CreateAuthor")]
+        public IActionResult Create([FromBody] Author author)//async Task<ActionResult<Author>> CreateAuthor(Author author)
         {
-            await _authorService.CreateAuthor(author);
-            var response = new BaseResponse<Author>()
+            if (author == null)
             {
-                Description = "Created",
-                StatusCode = 201,
-                Values = new List<Author> { author }
-            };
-            return Ok(response);
+                return BadRequest();
+            }
+            AuthorRepository.Create(author);
+            return CreatedAtRoute("GetAuthor", new { id = author.Id }, author);
+            //await _authorService.CreateAuthor(author);
+            //var response = new BaseResponse<Author>()
+            //{
+            //    Description = "Created",
+            //    StatusCode = 201,
+            //    Values = new List<Author> { author }
+            //};
+            //return Ok(response);
         }
-
         [Authorize]
         [HttpPut("{id}")]
-        public async Task<ActionResult<Author>> PutAuthor(int id, Author author)
+        public IActionResult Update(int Id, [FromBody] Author updatedAuthor)
         {
-            await _authorService.PutAuthor(id, author);
-            var response = new BaseResponse<Author>()
+            if (updatedAuthor == null || updatedAuthor.Id != Id)
             {
-                Description = "Success",
-                StatusCode = 200,
-                Values = new List<Author> { author }
-            };
-            return Ok(response);
+                return BadRequest();
+            }
+
+            var author = AuthorRepository.Get(Id);
+            if (author == null)
+            {
+                return NotFound();
+            }
+
+            AuthorRepository.Update(updatedAuthor);
+            return RedirectToRoute("GetAllAuthors");
         }
 
         [Authorize]
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAuthor(int id)
+        public IActionResult Delete(int Id)
         {
-            await _authorService.DeleteAuthor(id);
-            var response = new BaseResponse<Author>()
+            var deletedAuthor = AuthorRepository.Delete(Id);
+
+            if (deletedAuthor == null)
             {
-                Description = "No content",
-                StatusCode = 204
-            };
-            return Ok(response);
+                return BadRequest();
+            }
+
+            return new ObjectResult(deletedAuthor);
         }
+
+        //    [Authorize]
+        //    [HttpPut("{id}")]
+        //    public async Task<ActionResult<Author>> PutAuthor(int id, Author author)
+        //    {
+        //        await _authorService.PutAuthor(id, author);
+        //        var response = new BaseResponse<Author>()
+        //        {
+        //            Description = "Success",
+        //            StatusCode = 200,
+        //            Values = new List<Author> { author }
+        //        };
+        //        return Ok(response);
+        //    }
+
+        //    [Authorize]
+        //    [HttpDelete("{id}")]
+        //    public async Task<IActionResult> DeleteAuthor(int id)
+        //    {
+        //        await _authorService.DeleteAuthor(id);
+        //        var response = new BaseResponse<Author>()
+        //        {
+        //            Description = "No content",
+        //            StatusCode = 204
+        //        };
+        //        return Ok(response);
+        //    }
+        //}
     }
 }

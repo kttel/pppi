@@ -83,3 +83,4 @@ D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\SixLabors.Fonts.dll
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\System.IO.Packaging.dll
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\XLParser.dll
 D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+D:\PPPI\LabProject\LabProject\bin\Debug\net7.0\nuget.config
